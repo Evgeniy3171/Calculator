@@ -4,7 +4,7 @@ let buttonPlus = document.getElementById('buttonPlus'),
     buttonDevide = document.getElementById('buttonDevide'),
     inputFirst = document.getElementById('input-1'),
     inputSecond = document.getElementById('input-2'),
-    buttonClear = document.getElementsById('cleaner'),
+    buttonClear = document.getElementById('cleaner'),
     result;
 
 function onButtonPlusClick() {
@@ -28,9 +28,8 @@ function onButtonDevideClick() {
 }
 
 function onCleanerClick() {
-    // inputFirst.value = 0;
-    // inputSecond.value = 0;
-    alert('JHJHJHHK');
+    inputFirst.value = "";
+    inputSecond.value = "";
 }
 
 buttonPlus.addEventListener('click', onButtonPlusClick);
