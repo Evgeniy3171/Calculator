@@ -1,11 +1,14 @@
-let buttonPlus = document.getElementById('buttonPlus'),
+/*const buttonPlus = document.getElementById('buttonPlus'),
     buttonMinus = document.getElementById('buttonMinus'),
     buttonMultplay = document.getElementById('buttonMultplay'),
     buttonDevide = document.getElementById('buttonDevide'),
-    inputFirst = document.getElementById('input-1'),
+*/
+const inputFirst = document.getElementById('input-1'),
     inputSecond = document.getElementById('input-2'),
     buttonClear = document.getElementById('cleaner'),
-    result;
+    windowResult = document.getElementById('window-result');
+let result,
+    operationButton = document.getElementsByClassName('operation-button');
 
 function makeOperation(operand) {   //в зависимости от переданного операнда происходит соответствующее вычисление
     if (operand === '+') {
@@ -14,10 +17,13 @@ function makeOperation(operand) {   //в зависимости от перед�
         result = +inputFirst.value - +inputSecond.value;
     } else if (operand === '*') {
         result = +inputFirst.value * +inputSecond.value;
-    } else {
+    } else if (operand === '/'){
         result = +inputFirst.value / +inputSecond.value;
+    } else {
+        result = +inputSecond.value * 100 / +inputFirst.value;
     }
-    console.log('result: ', result);
+    //console.log('result: ', result);
+    windowResult.innerText = result;
 }
 /* первый вариант */
 /* function onButtonPlusClick() {
@@ -47,6 +53,7 @@ function onButtonDevideClick() {
 function onCleanerClick() {
     inputFirst.value = "";
     inputSecond.value = "";
+    windowResult.innerText = "0";
 }
 
 function onOperationButtonClick(eventObject) {
@@ -62,8 +69,24 @@ buttonDevide.addEventListener('click', onButtonDevideClick);
 buttonClear.addEventListener('click', onCleanerClick);
  */
 
+//const operationButton = [buttonPlus, buttonMinus, buttonMultplay, buttonDevide];
+
+/*
+function addCommonEventListener(i) {
+  operationButton[i].addEventListener('click', onOperationButtonClick);
+}
+*/
+
+for (let a = 0; a < operationButton.length; a++) {
+  operationButton[a].addEventListener('click', onOperationButtonClick);
+}
+
+buttonClear.addEventListener('click', onCleanerClick);
+
+/*
 buttonPlus.addEventListener('click', onOperationButtonClick);
 buttonMinus.addEventListener('click', onOperationButtonClick);
 buttonMultplay.addEventListener('click', onOperationButtonClick);
 buttonDevide.addEventListener('click', onOperationButtonClick);
 buttonClear.addEventListener('click', onCleanerClick);
+*/
